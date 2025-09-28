@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Task Management System Design Tokens */
+@layer base {
+  :root {
+    /* Core Brand Colors (from specification) */
+    --primary-dark: 225 6% 22%;        /* #37353E */
+    --secondary-dark: 225 5% 27%;      /* #44444E */
+    --accent-brown: 17 14% 40%;        /* #715A5A */
+    --neutral-light: 150 14% 85%;      /* #D3DAD9 */
+    
+    /* System Colors */
+    --background: 150 14% 85%;          /* neutral-light as base background */
+    --foreground: 225 6% 22%;           /* primary-dark for text */
+    
+    --card: 0 0% 100%;
+    --card-foreground: 225 6% 22%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 225 6% 22%;
+    
+    --primary: 225 6% 22%;              /* primary-dark */
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 150 14% 85%;           /* neutral-light */
+    --secondary-foreground: 225 6% 22%;
+    
+    --muted: 150 10% 90%;
+    --muted-foreground: 225 5% 45%;
+    
+    --accent: 17 14% 40%;               /* accent-brown */
+    --accent-foreground: 0 0% 100%;
+    
+    /* Task Status Colors */
+    --status-pending: 45 100% 50%;      /* Yellow - >1 month remaining */
+    --status-urgent: 0 100% 50%;        /* Red - <1 month remaining */
+    --status-progress: 25 100% 50%;     /* Orange - In Progress */
+    --status-completed: 120 100% 40%;   /* Green - Completed & Approved */
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 150 10% 80%;
+    --input: 150 10% 92%;
+    --ring: 225 6% 22%;
+    
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', 'Noto Sans Arabic', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  
+  /* RTL Support */
+  [dir="rtl"] {
+    direction: rtl;
+  }
+  
+  [dir="ltr"] {
+    direction: ltr;
+  }
+  
+  /* Custom animations for task management */
+  .task-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
